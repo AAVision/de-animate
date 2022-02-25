@@ -8,19 +8,28 @@
 <a name="module_de-animate"></a>
 # De-animate
 
-A jQuery lightweight plugin for Animation. Checkout our [page](http://thiagoh.github.io/de-animate/)
+A jQuery lightweight plugin for Animation. Less than 5KB :)
+
+## What's NEW ?
+A new settings are added, you can now animate by selector( By ID and class ) and you can now validate a form before animation.
 
 ## Getting Started
 Download the [production version][min] or the [development version][max].
 
-[min]: https://cdn.rawgit.com/thiagoh/de-animate/0.2.3/dist/jquery.de-animate.min.js
-[max]: https://cdn.rawgit.com/thiagoh/de-animate/0.2.3/dist/jquery.de-animate.js
+
+[min]: https://raw.githubusercontent.com/AAVision/de-animate/master/dist/jquery.de-animate.min.js
+[max]: https://raw.githubusercontent.com/AAVision/de-animate/master/dist/jquery.de-animate.js
 
 In your web page:
 
 ```html
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script src="https://cdn.rawgit.com/thiagoh/de-animate/master/dist/jquery.de-animate.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css" />
+<script src="https://raw.githubusercontent.com/AAVision/de-animate/master/dist/jquery.de-animate.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js" integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <div id="card-1" class="card animated">
   <div class="back">
       Back of Panel content Flipped X
@@ -32,9 +41,10 @@ In your web page:
 <script>
 $(function() {
     $('#card-1').deAnimate({
-        trigger: 'click',
+        trigger: 'click', // 'hover', '#button', '.button'
         classIn: 'flipInX',
-        parallel: false
+        parallel: false,
+        form: '#form' // '.form' // optional
     });
 });
 </script>
