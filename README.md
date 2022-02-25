@@ -8,10 +8,10 @@
 <a name="module_de-animate"></a>
 # De-animate
 
-A jQuery lightweight plugin for Animation. Less than 5KB :)
+A jQuery lightweight plugin for Animation. Less than 5KB :grinning:
 
 ## What's NEW ?
-A new settings are added, you can now animate by selector( By ID and class ) and you can now validate a form before animation.
+New settings were added, you can now animate by selector( By ID and class ) :heart_eyes: and you can do a simple validation of a form before animation.
 
 ## Getting Started
 Download the [production version][min] or the [development version][max].
