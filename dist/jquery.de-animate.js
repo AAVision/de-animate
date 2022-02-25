@@ -1,7 +1,20 @@
-/*! De Animate - v0.2.1 - 2016-01-12
-* https://github.com/thiagoh/de-animate
+/*! De Animate - v1.0.0 - 2022-02-25
+* https://github.com/aavision/de-animate
+* FORKED FROM https://github.com/thiagoh/de-animate
 * Copyright (c) 2016 Thiago Andrade; Licensed MIT */
 (function($) {
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
 
 
     // Function from David Walsh: http://davidwalsh.name/css-animation-callback licensed with http://opensource.org/licenses/MIT
@@ -276,6 +289,25 @@
 
                             $el.mouseenter(performAnimation);
                             $el.mouseleave(performDeanimation);
+                        }else if(settings.trigger.charAt(0) === "#" || settings.trigger.charAt(0) === "."){
+                            var flag = true;
+                            $("body").on("click", settings.trigger, function() {
+                                if(typeof settings.form !== 'undefined')
+                                    if(settings.form.charAt(0) === "#" || settings.form.charAt(0) === ".")
+                                        $("form"+settings.form+" :input").each(function(){
+                                            alert($(this).val())
+                                            if ($(this).val()=="")
+                                                flag = false;   
+                                        });
+                                        if (flag==false){
+                                            Toast.fire({
+                                                icon: 'error',
+                                                title: 'All Fields are required'
+                                            })
+                                            return;
+                                        }
+                                _animate(true, $el, callback);
+                            });
                         }
                     }
                 }
